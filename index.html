@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finish Line | Fotos oficiales de carrera</title>
+  <meta
+    name="description"
+    content="Encuentra tus fotos oficiales por carrera y numero de corredor. Compra y descarga en minutos."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="icon" href="assets/brand/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="home">
+  <header class="site-header site-header-dark">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/brand/logo-mark.png" alt="Logo Finish Line"></span>
+      <span class="brand-copy">
+        <strong>Finish Line</strong>
+        <small>Fotos oficiales de carrera</small>
+      </span>
+    </a>
+
+    <nav class="site-nav site-nav-dark" aria-label="Navegacion principal">
+      <a href="index.html" class="is-active">Inicio</a>
+      <a href="precios.html">Precios</a>
+      <a href="carrera.html?race=cdmx-maraton-2025">Buscar fotos</a>
+      <a href="cart.html" class="cart-link">Carrito <span class="cart-count" data-cart-count>0</span></a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <section class="home-hero" id="home-hero-stage">
+      <div class="home-hero-surface">
+        <div class="hero-search-shell">
+          <span class="hero-kicker">Finish Line</span>
+          <h1>Busca por carrera o dorsal</h1>
+          <form class="hero-search-form" id="workflow-search-form">
+            <label class="sr-only" for="workflow-event">Evento</label>
+            <select id="workflow-event" class="hero-search-control"></select>
+            <label class="sr-only" for="workflow-bib">Numero</label>
+            <input
+              id="workflow-bib"
+              class="hero-search-control"
+              type="search"
+              inputmode="numeric"
+              placeholder="Numero opcional"
+              autocomplete="off"
+            >
+            <button type="submit" class="hero-search-button">Buscar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading section-heading-compact">
+        <span class="eyebrow">Carreras</span>
+        <h2>Carreras recientes</h2>
+      </div>
+      <div class="event-grid" id="home-showcase"></div>
+    </section>
+
+    <section class="section section-gallery">
+      <div class="section-heading section-heading-compact">
+        <span class="eyebrow">Galerias</span>
+        <h2>Ultimas fotos publicadas</h2>
+      </div>
+      <div class="gallery-grid" id="home-gallery"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Finish Line. Fotos oficiales de carrera con compra directa.</p>
+  </footer>
+
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finish Line | Buscar fotos</title>
+  <meta
+    name="description"
+    content="Busca tus fotos por carrera o por numero dentro de una carrera."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="icon" href="assets/brand/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="race-detail">
+  <header class="site-header site-header-dark">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/brand/logo-mark.png" alt="Logo Finish Line"></span>
+      <span class="brand-copy">
+        <strong>Finish Line</strong>
+        <small>Fotos oficiales de carrera</small>
+      </span>
+    </a>
+
+    <nav class="site-nav site-nav-dark" aria-label="Navegacion principal">
+      <a href="index.html">Inicio</a>
+      <a href="precios.html">Precios</a>
+      <a href="carrera.html?race=cdmx-maraton-2025" class="is-active">Buscar fotos</a>
+      <a href="cart.html" class="cart-link">Carrito <span class="cart-count" data-cart-count>0</span></a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <section class="event-hero" id="race-hero"></section>
+
+    <section class="finder-layout">
+      <aside class="finder-sidebar">
+        <article class="finder-card">
+          <span class="eyebrow">Buscar</span>
+          <h2>Busca por carrera o numero</h2>
+          <form id="bib-search-form" class="search-form">
+            <select id="detail-race-select" class="text-input">
+              <option value="">Selecciona carrera</option>
+            </select>
+            <input
+              id="bib-search"
+              class="text-input"
+              type="search"
+              inputmode="numeric"
+              placeholder="Numero opcional"
+              autocomplete="off"
+            >
+            <button class="btn btn-primary" type="submit">Buscar</button>
+          </form>
+          <p class="muted-copy" id="search-feedback">Elige carrera y, si quieres, escribe tu numero.</p>
+          <div class="chip-list" id="bib-chip-list"></div>
+        </article>
+
+        <article class="finder-card" id="purchase-panel">
+          <span class="eyebrow">Paquete</span>
+          <h2>Tu compra</h2>
+          <p class="muted-copy">Entra por carrera o escribe tu numero para activar tu paquete.</p>
+        </article>
+      </aside>
+
+      <section class="results-shell">
+        <div class="results-header">
+          <div>
+            <span class="eyebrow">Resultados</span>
+            <h2>Tu galeria</h2>
+          </div>
+          <p class="muted-copy" id="results-summary">La vista previa se desbloquea despues de la compra.</p>
+        </div>
+        <div class="photo-grid" id="results-grid"></div>
+      </section>
+    </section>
+
+    <section class="section section-tight">
+      <div class="section-heading section-heading-compact">
+        <span class="eyebrow">Otras carreras</span>
+        <h2>Explora otras galerias</h2>
+      </div>
+      <div class="event-grid event-grid-full" id="detail-race-examples"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Busca por carrera o por dorsal, agrega tu paquete al carrito y completa la compra.</p>
+  </footer>
+
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finish Line | Reportes</title>
+  <meta
+    name="description"
+    content="Reporte de compras e ingresos para exportar a Excel."
+  >
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="icon" href="assets/brand/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="reports" class="admin-protected">
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/brand/logo-mark.png" alt="Logo Finish Line"></span>
+      <span class="brand-copy">
+        <strong>Finish Line</strong>
+        <small>Panel de administracion</small>
+      </span>
+    </a>
+
+    <nav class="site-nav" aria-label="Navegacion principal">
+      <a href="index.html">Inicio</a>
+      <a href="carrera.html?race=cdmx-maraton-2025">Buscar fotos</a>
+      <a href="reportes.html" class="is-active">Administracion</a>
+    </nav>
+  </header>
+
+  <main class="page-shell">
+    <section class="page-hero report-hero">
+      <div class="section-heading align-left">
+        <span class="eyebrow">Panel administrativo</span>
+        <h1>Compras, compradores e ingresos en una sola vista</h1>
+        <p>
+          Aqui ves las ventas guardadas en este navegador, con resumen general, tabla de detalle
+          y exportacion CSV.
+        </p>
+      </div>
+
+      <div class="report-actions">
+        <button class="btn btn-primary" type="button" id="export-sales">
+          Exportar CSV para Excel
+        </button>
+        <button class="btn btn-secondary" type="button" id="clear-sales">
+          Limpiar ventas
+        </button>
+        <button class="btn btn-secondary" type="button" id="admin-logout">
+          Cerrar sesion
+        </button>
+      </div>
+    </section>
+
+    <section class="section flush-top">
+      <div class="report-grid" id="report-summary"></div>
+    </section>
+
+    <section class="section flush-top">
+      <div class="report-filters">
+        <div class="search-shell">
+          <label class="field-label" for="report-search">Buscar comprador o carrera</label>
+          <input
+            id="report-search"
+            class="text-input"
+            type="search"
+            placeholder="Ejemplo: ana, cdmx, 1024"
+            autocomplete="off"
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="section flush-top">
+      <div class="report-table-shell">
+        <div class="results-header">
+          <div>
+            <span class="eyebrow">Ventas registradas</span>
+            <h2>Detalle de operaciones</h2>
+          </div>
+          <p class="muted-copy" id="report-caption">
+            Todo lo de esta pantalla se guarda en el navegador actual.
+          </p>
+        </div>
+
+        <div class="table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Comprador</th>
+                <th>Correo</th>
+                <th>Carrera</th>
+                <th>Bib</th>
+                <th>Fotos</th>
+                <th>Ingreso</th>
+              </tr>
+            </thead>
+            <tbody id="sales-table-body"></tbody>
+          </table>
+        </div>
+
+        <div class="empty-card hidden" id="sales-empty">
+          <h3>Aun no hay compras registradas</h3>
+          <p>
+            Ve a una carrera, simula una compra y vuelve aqui para ver el reporte.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Para produccion esto debe conectarse a base de datos y reportes del backend.</p>
+  </footer>
+
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

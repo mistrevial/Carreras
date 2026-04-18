@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finish Line | Carrito</title>
+  <meta
+    name="description"
+    content="Revisa tu carrito y finaliza la compra de tus fotos."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="icon" href="assets/brand/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="cart">
+  <header class="site-header site-header-dark">
+    <a class="brand" href="index.html">
+      <span class="brand-mark"><img src="assets/brand/logo-mark.png" alt="Logo Finish Line"></span>
+      <span class="brand-copy">
+        <strong>Finish Line</strong>
+        <small>Fotos oficiales de carrera</small>
+      </span>
+    </a>
+
+    <nav class="site-nav site-nav-dark" aria-label="Navegacion principal">
+      <a href="index.html">Inicio</a>
+      <a href="precios.html">Precios</a>
+      <a href="carrera.html?race=cdmx-maraton-2025">Buscar fotos</a>
+      <a href="cart.html" class="is-active cart-link">Carrito <span class="cart-count" data-cart-count>0</span></a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <section class="catalog-hero">
+      <div class="section-heading">
+        <span class="eyebrow">Carrito</span>
+        <h1>Revisa tu compra</h1>
+        <p>Confirma tus paquetes y finaliza el pago.</p>
+      </div>
+    </section>
+
+    <section class="cart-layout">
+      <section class="results-shell">
+        <div class="results-header">
+          <div>
+            <span class="eyebrow">Paquetes</span>
+            <h2>Tu carrito</h2>
+          </div>
+          <p class="muted-copy" id="cart-caption">Tus paquetes se guardan en este navegador.</p>
+        </div>
+        <div class="cart-list" id="cart-list"></div>
+        <article class="empty-card hidden" id="cart-empty">
+          <h3>Tu carrito esta vacio</h3>
+          <p>Abre una carrera y agrega un paquete para continuar.</p>
+          <a class="btn btn-primary" href="carrera.html?race=cdmx-maraton-2025">Buscar fotos</a>
+        </article>
+      </section>
+
+      <aside class="finder-sidebar">
+        <article class="finder-card cart-summary-card">
+          <span class="eyebrow">Resumen</span>
+          <h2>Total</h2>
+          <div class="price-box">
+            <strong id="cart-total">$0</strong>
+            <span id="cart-total-helper">0 paquetes</span>
+          </div>
+        </article>
+
+        <article class="finder-card checkout-card">
+          <span class="eyebrow">Finalizar compra</span>
+          <h2>Datos del comprador</h2>
+          <form id="cart-checkout-form" class="checkout-form">
+            <label class="field-label" for="checkout-name">Nombre</label>
+            <input id="checkout-name" class="text-input" type="text" autocomplete="name" placeholder="Tu nombre">
+
+            <label class="field-label" for="checkout-email">Correo</label>
+            <input id="checkout-email" class="text-input" type="email" autocomplete="email" placeholder="tu@correo.com">
+
+            <p class="muted-copy hidden" id="cart-error"></p>
+
+            <button class="btn btn-primary stretch" type="submit" id="checkout-submit">
+              Completar compra
+            </button>
+          </form>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Compra tus paquetes y descarga tus fotos desde un solo lugar.</p>
+  </footer>
+
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
