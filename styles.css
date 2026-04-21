@@ -107,6 +107,21 @@ select {
   border-radius: 0;
 }
 
+.site-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 16px;
+}
+
+.site-header-bar > *,
+.catalog-hero > *,
+.event-hero-copy > *,
+.results-header > * {
+  min-width: 0;
+}
+
 .site-header-dark {
   background: linear-gradient(180deg, rgba(23, 24, 28, 0.98), rgba(23, 24, 28, 0.94));
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
@@ -169,14 +184,26 @@ select {
   justify-content: center;
 }
 
-.site-nav-dark a {
+.site-nav a {
   padding: 10px 8px;
   border-radius: 0;
-  color: rgba(248, 250, 252, 0.84);
+  color: rgba(23, 24, 28, 0.84);
   font-size: 0.92rem;
   font-weight: 700;
   border-bottom: 2px solid transparent;
   transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+  white-space: nowrap;
+}
+
+.site-nav a:hover,
+.site-nav a.is-active {
+  color: var(--ink);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.site-nav-dark a {
+  color: rgba(248, 250, 252, 0.84);
 }
 
 .site-nav-dark a:hover,
@@ -274,6 +301,7 @@ body[data-page="home"] .site-main {
 .cart-item-copy h3 {
   margin: 0;
   letter-spacing: -0.04em;
+  overflow-wrap: break-word;
 }
 
 .section-heading h1,
@@ -1054,15 +1082,64 @@ body[data-page="home"] .section {
 
 @media (max-width: 760px) {
   .site-header {
-    flex-direction: column;
-    align-items: center;
-    padding: 18px 20px;
+    align-items: stretch;
+    gap: 10px;
+    padding: 14px 16px 12px;
+  }
+
+  .site-header-bar {
+    justify-content: flex-start;
+    padding-right: 0;
+  }
+
+  .brand {
+    min-width: 0;
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+  }
+
+  .brand-copy strong {
+    font-size: 1.16rem;
+  }
+
+  .brand-copy small {
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
   }
 
   .site-nav {
     width: 100%;
-    overflow-x: auto;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding-top: 0;
+  }
+
+  .site-nav.is-open {
+    display: grid;
+  }
+
+  .site-nav a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-bottom-width: 1px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .site-nav-dark a {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.08);
   }
 
   .catalog-hero,
@@ -1071,7 +1148,12 @@ body[data-page="home"] .section {
   .results-shell,
   .report-table-shell,
   .admin-login-card {
-    padding: 22px;
+    padding: 20px;
+  }
+
+  .catalog-hero .section-heading,
+  .event-hero-copy > div {
+    width: 100%;
   }
 
   .home-hero,
@@ -1080,10 +1162,26 @@ body[data-page="home"] .section {
     padding-right: 20px;
   }
 
+  .home-hero {
+    min-height: 480px;
+    padding-top: 24px;
+    padding-bottom: 28px;
+    background-position: center;
+  }
+
+  .home-hero-surface {
+    min-height: 340px;
+  }
+
   .site-main,
   .site-footer,
   .page-shell {
     width: min(calc(100% - 24px), var(--max-width));
+  }
+
+  .site-main {
+    padding-top: 22px;
+    padding-bottom: 44px;
   }
 
   .section-heading h1,
@@ -1100,13 +1198,16 @@ body[data-page="home"] .section {
   }
 
   .hero-search-shell {
-    padding: 26px 18px 22px;
+    width: 100%;
+    padding: 24px 16px 18px;
+    border-radius: 16px;
   }
 
   .hero-search-shell h1 {
     margin-bottom: 18px;
-    font-size: clamp(1.3rem, 6vw, 2rem);
-    letter-spacing: 0.16em;
+    font-size: clamp(1.15rem, 7vw, 1.8rem);
+    line-height: 1.14;
+    letter-spacing: 0.08em;
   }
 
   .hero-search-form {
@@ -1114,15 +1215,82 @@ body[data-page="home"] .section {
     gap: 12px;
   }
 
+  .hero-search-control,
+  .hero-search-button,
+  .text-input,
+  .btn {
+    min-height: 52px;
+  }
+
+  .event-hero {
+    min-height: 220px;
+    padding: 20px;
+  }
+
+  .event-hero-copy h1 {
+    max-width: 11ch;
+    font-size: clamp(1.45rem, 6.5vw, 2rem);
+    line-height: 1.06;
+  }
+
+  .event-hero-copy p,
+  .event-hero-copy small {
+    font-size: 0.96rem;
+    overflow-wrap: break-word;
+  }
+
+  .finder-layout,
+  .cart-layout {
+    gap: 16px;
+    margin-top: 16px;
+  }
+
   .search-form {
     grid-template-columns: 1fr;
   }
 
+  .gallery-preview-media,
+  .race-card-media,
+  .photo-media {
+    min-height: 220px;
+  }
+
   .cart-item {
     grid-template-columns: 1fr;
+    padding: 14px;
   }
 
   .cart-item-actions {
     justify-items: start;
+    width: 100%;
+  }
+
+  .photo-actions,
+  .results-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .price-box strong {
+    font-size: 1.48rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .brand-copy small {
+    display: none;
+  }
+
+  .brand-copy strong {
+    font-size: 1.04rem;
+  }
+
+  .hero-kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+  }
+
+  .hero-search-shell h1 {
+    letter-spacing: 0.05em;
   }
 }
